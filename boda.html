@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#182019">
+
+<title>Cristian & Ivonne | Nuestra Boda</title>
+
+<style>
+/* =========================================================
+   BASE
+========================================================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --forest:#182019;
+  --forest2:#263126;
+  --sage:#7d8974;
+  --cream:#f4efe5;
+  --paper:#fbf8f1;
+  --gold:#c4a36a;
+  --gold2:#e2c991;
+  --brown:#6d5043;
+  --navy:#1B263B;
+  --text:#293028;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--paper);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+::selection{
+  background:var(--gold);
+  color:white;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{
+  position:relative;
+  width:100%;
+  height:100svh;
+  min-height:680px;
+  overflow:hidden;
+  background:#0c100c;
+  color:white;
+}
+
+.slideshow{
+  position:absolute;
+  inset:0;
+}
+
+.slide{
+  position:absolute;
+  inset:-3%;
+  opacity:0;
+  background-size:cover;
+  background-position:center;
+  transform:scale(1);
+  transition:opacity 1.8s ease;
+}
+
+.slide.active{
+  opacity:1;
+  animation:kenburns 7s linear forwards;
+}
+
+.slide:nth-child(1){
+  background-image:url("fotos/_EDY6200.jpg");
+  background-position:center center;
+}
+
+.slide:nth-child(2){
+  background-image:url("fotos/_EDY6318.jpg");
+  background-position:center center;
+}
+
+.slide:nth-child(3){
+  background-image:url("fotos/_EDY6193.jpg");
+  background-position:center center;
+}
+
+.slide:nth-child(4){
+  background-image:url("fotos/_EDY6263.jpg");
+  background-position:center center;
+}
+
+@keyframes kenburns{
+  from{transform:scale(1)}
+  to{transform:scale(1.07)}
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(8,13,9,.22) 0%,
+      rgba(8,13,9,.25) 35%,
+      rgba(8,13,9,.64) 100%
+    );
+}
+
+.hero-vignette{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  box-shadow:inset 0 0 160px rgba(0,0,0,.45);
+}
+
+.hero-content{
+  position:relative;
+  z-index:4;
+  height:100%;
+  width:min(1100px,92vw);
+  margin:auto;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+
+  text-align:center;
+  padding:60px 20px 72px;
+}
+
+.hero-small{
+  font:10px Arial,sans-serif;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#efe8da;
+  margin-bottom:22px;
+
+  opacity:0;
+  animation:appear .9s ease .5s forwards;
+}
+
+.hero-monogram{
+  width:72px;
+  height:72px;
+  border:1px solid rgba(226,201,145,.8);
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  color:var(--gold2);
+  font-size:20px;
+  margin-bottom:24px;
+
+  opacity:0;
+  animation:appear .9s ease .8s forwards;
+}
+
+.hero h1{
+  font-size:clamp(58px,10vw,112px);
+  line-height:.82;
+  font-weight:400;
+  letter-spacing:-4px;
+
+  text-shadow:
+    0 3px 25px rgba(0,0,0,.5);
+
+  opacity:0;
+  animation:appear 1.2s ease 1s forwards;
+}
+
+.hero h1 span{
+  display:block;
+  color:#e8d3a6;
+  font-style:italic;
+}
+
+.hero .amp{
+  font-size:.55em;
+  color:white;
+}
+
+.hero-date{
+  margin-top:30px;
+  padding:12px 24px;
+
+  border-top:
+    1px solid rgba(226,201,145,.65);
+
+  border-bottom:
+    1px solid rgba(226,201,145,.65);
+
+  font:10px Arial,sans-serif;
+  letter-spacing:4px;
+  text-transform:uppercase;
+
+  opacity:0;
+  animation:appear .9s ease 1.4s forwards;
+}
+
+.hero-place{
+  margin-top:18px;
+  font-size:15px;
+  font-style:italic;
+  color:#f5f0e7;
+
+  opacity:0;
+  animation:appear .9s ease 1.6s forwards;
+}
+
+.hero-scroll{
+  margin-top:28px;
+  color:white;
+  text-decoration:none;
+
+  font:9px Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:3px;
+
+  opacity:0;
+  animation:appear .9s ease 1.8s forwards;
+}
+
+.hero-scroll .arrow{
+  display:block;
+  font-size:20px;
+  margin-top:8px;
+
+  animation:bounce 2s infinite;
+}
+
+@keyframes appear{
+
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+@keyframes bounce{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(7px);
+  }
+
+}
+
+/* =========================================================
+   SLIDESHOW INDICATORS
+========================================================= */
+.slide-dots{
+  position:absolute;
+  z-index:5;
+
+  bottom:25px;
+  right:30px;
+
+  display:flex;
+  gap:8px;
+}
+
+.dot{
+  width:26px;
+  height:2px;
+
+  background:
+    rgba(255,255,255,.35);
+
+  transition:.5s;
+}
+
+.dot.active{
+  width:45px;
+  background:var(--gold2);
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+.music-button{
+  position:fixed;
+
+  right:24px;
+  bottom:24px;
+
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+
+  min-width:122px;
+
+  padding:
+    12px 17px;
+
+  border:
+    1px solid rgba(226,201,145,.65);
+
+  border-radius:
+    50px;
+
+  background:
+    rgba(24,32,25,.80);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  color:#f5efe4;
+
+  font:
+    9px Arial,sans-serif;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    2px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.25);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+}
+
+.music-button:hover{
+  transform:
+    translateY(-2px);
+
+  background:
+    rgba(24,32,25,.96);
+
+  border-color:
+    var(--gold2);
+}
+
+#musicIcon{
+  color:
+    var(--gold2);
+
+  font-size:
+    18px;
+}
+
+.music-button.playing #musicIcon{
+  animation:
+    musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse{
+
+  0%,100%{
+    transform:scale(1);
+    opacity:1;
+  }
+
+  50%{
+    transform:scale(1.18);
+    opacity:.7;
+  }
+
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+section{
+  padding:
+    110px 24px;
+}
+
+.wrap{
+  width:min(1080px,100%);
+  margin:auto;
+}
+
+.section-label{
+  color:var(--gold);
+
+  text-transform:uppercase;
+
+  letter-spacing:4px;
+
+  font:
+    10px Arial,sans-serif;
+
+  margin-bottom:15px;
+}
+
+.section-title{
+  font-size:
+    clamp(40px,6vw,68px);
+
+  font-weight:400;
+
+  line-height:1.05;
+}
+
+.center{
+  text-align:center;
+}
+
+.ornament{
+  color:var(--gold);
+  font-size:26px;
+  margin:27px 0;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+.intro{
+  background:var(--paper);
+  text-align:center;
+}
+
+.intro-copy{
+  max-width:700px;
+
+  margin:
+    35px auto 0;
+
+  font-size:19px;
+
+  line-height:2;
+
+  color:#5a6158;
+}
+
+.signature{
+  margin-top:35px;
+
+  color:var(--sage);
+
+  font-size:25px;
+
+  font-style:italic;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+.countdown-section{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    var(--forest);
+
+  color:white;
+}
+
+.countdown-glow{
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  top:-250px;
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(196,163,106,.16),
+      transparent 68%
+    );
+}
+
+.countdown-section .section-title{
+  color:#f3ebdc;
+}
+
+.countdown-grid{
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  max-width:
+    820px;
+
+  margin:
+    52px auto 0;
+
+  border-top:
+    1px solid rgba(196,163,106,.35);
+
+  border-bottom:
+    1px solid rgba(196,163,106,.35);
+}
+
+.count-item{
+  padding:
+    38px 12px;
+
+  text-align:center;
+
+  border-right:
+    1px solid rgba(196,163,106,.25);
+}
+
+.count-item:last-child{
+  border-right:none;
+}
+
+.count-number{
+  color:var(--gold2);
+
+  font-size:
+    clamp(38px,6vw,63px);
+
+  font-weight:400;
+}
+
+.count-label{
+  display:block;
+
+  margin-top:8px;
+
+  color:#adb5aa;
+
+  font:
+    9px Arial,sans-serif;
+
+  text-transform:uppercase;
+
+  letter-spacing:2px;
+}
+
+/* =========================================================
+   STORY
+========================================================= */
+.story{
+  background:#eee9df;
+  overflow:hidden;
+}
+
+.story-intro{
+  max-width:650px;
+  margin-bottom:70px;
+}
+
+.story-intro p{
+  margin-top:20px;
+
+  font-size:17px;
+  line-height:1.8;
+
+  color:#62675f;
+}
+
+.editorial{
+  display:grid;
+
+  grid-template-columns:
+    1.1fr .9fr;
+
+  gap:28px;
+
+  align-items:center;
+}
+
+.photo-primary{
+  height:630px;
+  overflow:hidden;
+}
+
+.photo-primary img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform 1.2s ease;
+}
+
+.photo-primary:hover img{
+  transform:
+    scale(1.035);
+}
+
+.editorial-side{
+  display:grid;
+  gap:28px;
+}
+
+.photo-small{
+  height:300px;
+  overflow:hidden;
+}
+
+.photo-small img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform 1.2s ease;
+}
+
+.photo-small:hover img{
+  transform:
+    scale(1.04);
+}
+
+.quote-box{
+  padding:35px;
+
+  background:
+    var(--forest);
+
+  color:#eee7da;
+
+  text-align:center;
+}
+
+.quote-box p{
+  font-size:23px;
+
+  font-style:italic;
+
+  line-height:1.6;
+}
+
+.quote-box span{
+  display:block;
+
+  margin-top:17px;
+
+  color:var(--gold2);
+
+  font:
+    9px Arial,sans-serif;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+}
+
+/* =========================================================
+   PHOTO BREAK
+========================================================= */
+.photo-break{
+  height:78vh;
+  min-height:600px;
+
+  padding:0;
+
+  position:relative;
+
+  display:grid;
+
+  place-items:center;
+
+  overflow:hidden;
+
+  background:
+    url("fotos/_EDY6263.jpg")
+    center center / cover no-repeat;
+
+  background-attachment:
+    fixed;
+}
+
+.photo-break::before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10,15,10,.25),
+      rgba(10,15,10,.55)
+    );
+}
+
+.photo-break-content{
+  position:relative;
+  z-index:2;
+
+  width:
+    min(750px,90%);
+
+  text-align:center;
+
+  color:white;
+}
+
+.photo-break-content p{
+  font-size:
+    clamp(31px,5vw,55px);
+
+  line-height:1.3;
+
+  font-style:italic;
+
+  text-shadow:
+    0 3px 20px rgba(0,0,0,.55);
+}
+
+.photo-break-content small{
+  display:block;
+
+  margin-top:25px;
+
+  color:
+    var(--gold2);
+
+  font:
+    10px Arial,sans-serif;
+
+  letter-spacing:4px;
+
+  text-transform:
+    uppercase;
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+.location{
+  background:
+    var(--paper);
+}
+
+.location-card{
+  max-width:
+    850px;
+
+  margin:
+    55px auto 0;
+
+  border:
+    1px solid #dacfbf;
+
+  padding:
+    65px 35px;
+
+  text-align:center;
+
+  position:relative;
+}
+
+.location-card::before{
+  content:"";
+
+  position:absolute;
+
+  inset:9px;
+
+  border:
+    1px solid #ebe3d5;
+}
+
+.location-icon{
+  position:relative;
+
+  z-index:2;
+
+  width:65px;
+  height:65px;
+
+  border:
+    1px solid var(--gold);
+
+  border-radius:
+    50%;
+
+  margin:
+    0 auto 24px;
+
+  display:grid;
+  place-items:center;
+
+  color:
+    var(--gold);
+
+  font-size:25px;
+}
+
+.location-card h3{
+  position:relative;
+
+  font-size:
+    clamp(28px,4vw,40px);
+
+  font-weight:400;
+}
+
+.address{
+  position:relative;
+
+  margin:
+    17px 0 28px;
+
+  line-height:1.8;
+
+  color:#62675f;
+}
+
+.map-button{
+  position:relative;
+
+  display:inline-block;
+
+  border:
+    1px solid var(--gold);
+
+  padding:
+    16px 29px;
+
+  text-decoration:none;
+
+  font:
+    bold 10px Arial,sans-serif;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    2px;
+
+  transition:.3s;
+}
+
+.map-button:hover{
+  background:
+    var(--gold);
+
+  color:white;
+}
+
+/* =========================================================
+   SCHEDULE
+========================================================= */
+.schedule{
+  background:#e8ebe3;
+}
+
+.schedule-list{
+  max-width:750px;
+
+  margin:
+    55px auto 0;
+}
+
+.schedule-item{
+  display:grid;
+
+  grid-template-columns:
+    150px 1fr;
+
+  padding:
+    32px 5px;
+
+  border-bottom:
+    1px solid rgba(41,48,40,.15);
+}
+
+.schedule-time{
+  color:
+    var(--gold);
+
+  font:
+    11px Arial,sans-serif;
+
+  letter-spacing:
+    2px;
+
+  text-transform:
+    uppercase;
+}
+
+.schedule-info h3{
+  font-size:
+    27px;
+
+  font-weight:
+    400;
+
+  margin-bottom:
+    9px;
+}
+
+.schedule-info p{
+  color:
+    #61685e;
+
+  line-height:
+    1.7;
+}
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+.dress{
+  text-align:center;
+}
+
+.palette{
+  display:flex;
+
+  justify-content:center;
+
+  gap:13px;
+
+  margin:
+    32px 0;
+}
+
+.swatch{
+  height:47px;
+  width:47px;
+
+  border-radius:
+    50%;
+
+  border:
+    5px solid white;
+
+  box-shadow:
+    0 2px 12px rgba(0,0,0,.15);
+}
+
+.dress-copy{
+  max-width:
+    570px;
+
+  margin:auto;
+
+  color:#62675f;
+
+  line-height:1.8;
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+.rsvp{
+  color:white;
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+    var(--forest2);
+}
+
+.rsvp::before{
+  content:"";
+
+  position:absolute;
+
+  width:600px;
+  height:600px;
+
+  border-radius:50%;
+
+  left:50%;
+  top:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    1px solid rgba(196,163,106,.13);
+}
+
+.rsvp-content{
+  position:relative;
+  z-index:2;
+}
+
+.rsvp .section-title{
+  color:#f4eddf;
+}
+
+.rsvp-copy{
+  max-width:
+    620px;
+
+  margin:
+    30px auto;
+
+  color:#d7ddd3;
+
+  line-height:1.8;
+
+  font-size:17px;
+}
+
+.whatsapp-btn{
+  display:inline-block;
+
+  margin-top:12px;
+
+  background:#f5efe4;
+
+  color:#253025;
+
+  padding:
+    18px 31px;
+
+  text-decoration:none;
+
+  font:
+    bold 10px Arial,sans-serif;
+
+  letter-spacing:
+    2px;
+
+  text-transform:
+    uppercase;
+
+  border:
+    1px solid #f5efe4;
+
+  transition:.3s;
+}
+
+.whatsapp-btn:hover{
+  background:transparent;
+  color:white;
+}
+
+.rsvp-note{
+  margin-top:20px;
+
+  color:#9ea79b;
+
+  font:
+    9px Arial,sans-serif;
+
+  letter-spacing:
+    2px;
+
+  text-transform:
+    uppercase;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{
+  padding:
+    70px 20px;
+
+  background:
+    #111611;
+
+  color:
+    #c2c8bf;
+
+  text-align:center;
+}
+
+.footer-monogram{
+  color:
+    var(--gold2);
+
+  font-size:
+    33px;
+
+  font-style:
+    italic;
+
+  margin-bottom:
+    14px;
+}
+
+footer p{
+  font:
+    9px Arial,sans-serif;
+
+  letter-spacing:
+    3px;
+
+  text-transform:
+    uppercase;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media(max-width:700px){
+
+  section{
+    padding:
+      80px 20px;
+  }
+
+  .hero{
+    min-height:
+      650px;
+  }
+
+  .hero h1{
+    letter-spacing:
+      -2px;
+  }
+
+  .slide:nth-child(1){
+    background-position:
+      60% center;
+  }
+
+  .slide:nth-child(2){
+    background-position:
+      67% center;
+  }
+
+  .slide:nth-child(3){
+    background-position:
+      54% center;
+  }
+
+  .slide:nth-child(4){
+    background-position:
+      53% center;
+  }
+
+  .countdown-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .count-item:nth-child(2){
+    border-right:none;
+  }
+
+  .count-item:nth-child(-n+2){
+    border-bottom:
+      1px solid rgba(196,163,106,.25);
+  }
+
+  .editorial{
+    grid-template-columns:
+      1fr;
+  }
+
+  .photo-primary{
+    height:
+      480px;
+  }
+
+  .photo-small{
+    height:
+      280px;
+  }
+
+  .photo-break{
+    height:
+      70vh;
+
+    min-height:
+      520px;
+
+    background-attachment:
+      scroll;
+
+    background-position:
+      53% center;
+  }
+
+  .schedule-item{
+    grid-template-columns:
+      1fr;
+
+    gap:
+      10px;
+  }
+
+  .location-card{
+    padding:
+      50px 22px;
+  }
+
+  .slide-dots{
+    right:
+      20px;
+  }
+
+  .music-button{
+    right:
+      16px;
+
+    bottom:
+      16px;
+
+    min-width:
+      108px;
+
+    padding:
+      11px 14px;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *{
+    scroll-behavior:
+      auto!important;
+
+    animation:
+      none!important;
+
+    transition:
+      none!important;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+====================================================== -->
+
+<audio
+  id="backgroundMusic"
+  loop
+  preload="auto">
+
+  <source
+    src="musica/nuestra-cancion.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<button
+  id="musicButton"
+  class="music-button"
+  aria-label="Reproducir música">
+
+  <span id="musicIcon">♪</span>
+
+  <span id="musicText">
+    Música
+  </span>
+
+</button>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+  <div class="slideshow">
+
+    <div class="slide active"></div>
+
+    <div class="slide"></div>
+
+    <div class="slide"></div>
+
+    <div class="slide"></div>
+
+  </div>
+
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-vignette"></div>
+
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Tenemos el honor de invitarte
+    </div>
+
+
+    <div class="hero-monogram">
+      C&I
+    </div>
+
+
+    <h1>
+
+      Cristian
+
+      <span>
+
+        <span class="amp">
+          &
+        </span>
+
+        Ivonne
+
+      </span>
+
+    </h1>
+
+
+    <div class="hero-date">
+      19 · Diciembre · 2026
+    </div>
+
+
+    <div class="hero-place">
+      Hacienda los Lirios · Ciudad Juárez
+    </div>
+
+
+    <a
+      class="hero-scroll"
+      href="#inicio">
+
+      Nuestra historia
+
+      <span class="arrow">
+        ⌄
+      </span>
+
+    </a>
+
+  </div>
+
+
+  <div class="slide-dots">
+
+    <div class="dot active"></div>
+
+    <div class="dot"></div>
+
+    <div class="dot"></div>
+
+    <div class="dot"></div>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     INTRO
+====================================================== -->
+
+<section
+  class="intro"
+  id="inicio">
+
+  <div class="wrap reveal">
+
+    <div class="section-label">
+      Nuestra boda
+    </div>
+
+
+    <h2 class="section-title">
+
+      El comienzo de nuestra
+
+      <br>
+
+      historia favorita
+
+    </h2>
+
+
+    <div class="ornament">
+      ❦
+    </div>
+
+
+    <p class="intro-copy">
+
+      Después de tantos momentos compartidos,
+      aventuras, aprendizajes y sueños construidos juntos,
+      hemos decidido comenzar un nuevo capítulo.
+
+      <br><br>
+
+      Hay días que cambian nuestra vida para siempre.
+      Queremos que estés con nosotros cuando llegue el nuestro.
+
+    </p>
+
+
+    <div class="signature">
+      Cristian & Ivonne
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTDOWN
+====================================================== -->
+
+<section class="countdown-section">
+
+  <div class="countdown-glow"></div>
+
+
+  <div class="wrap center reveal">
+
+    <div class="section-label">
+      Cada día estamos más cerca
+    </div>
+
+
+    <h2 class="section-title">
+      Falta poco para nuestro “Sí”
+    </h2>
+
+
+    <div class="countdown-grid">
+
+      <div class="count-item">
+
+        <div
+          class="count-number"
+          id="days">
+          000
+        </div>
+
+        <span class="count-label">
+          Días
+        </span>
+
+      </div>
+
+
+      <div class="count-item">
+
+        <div
+          class="count-number"
+          id="hours">
+          00
+        </div>
+
+        <span class="count-label">
+          Horas
+        </span>
+
+      </div>
+
+
+      <div class="count-item">
+
+        <div
+          class="count-number"
+          id="minutes">
+          00
+        </div>
+
+        <span class="count-label">
+          Minutos
+        </span>
+
+      </div>
+
+
+      <div class="count-item">
+
+        <div
+          class="count-number"
+          id="seconds">
+          00
+        </div>
+
+        <span class="count-label">
+          Segundos
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORY
+====================================================== -->
+
+<section class="story">
+
+  <div class="wrap">
+
+    <div class="story-intro reveal">
+
+      <div class="section-label">
+        Nosotros
+      </div>
+
+
+      <h2 class="section-title">
+
+        Un camino que elegimos
+
+        <br>
+
+        recorrer juntos
+
+      </h2>
+
+
+      <p>
+
+        Cada fotografía guarda un momento.
+        Cada momento, una parte de nuestra historia.
+
+      </p>
+
+    </div>
+
+
+    <div class="editorial">
+
+      <div class="photo-primary reveal">
+
+        <img
+          src="fotos/_EDY6200.jpg"
+          alt="Fotografía de la sesión">
+
+      </div>
+
+
+      <div class="editorial-side">
+
+        <div class="photo-small reveal">
+
+          <img
+            src="fotos/_EDY6193.jpg"
+            alt="Fotografía de la sesión">
+
+        </div>
+
+
+        <div class="quote-box reveal">
+
+          <p>
+
+            “De todos los caminos,
+            elegimos caminar juntos.”
+
+          </p>
+
+          <span>
+            19 · 12 · 2026
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PHOTO BREAK
+====================================================== -->
+
+<section class="photo-break">
+
+  <div class="photo-break-content reveal">
+
+    <p>
+
+      “Y de pronto, todos nuestros caminos
+      nos trajeron hasta aquí.”
+
+    </p>
+
+
+    <small>
+
+      C & I · Para siempre comienza aquí
+
+    </small>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOCATION
+====================================================== -->
+
+<section class="location">
+
+  <div class="wrap reveal">
+
+
+    <div class="center">
+
+      <div class="section-label">
+        El lugar
+      </div>
+
+
+      <h2 class="section-title">
+
+        Nos vemos en
+
+        <br>
+
+        Hacienda los Lirios
+
+      </h2>
+
+    </div>
+
+
+    <div class="location-card">
+
+      <div class="location-icon">
+        ♢
+      </div>
+
+
+      <div class="section-label">
+        Ceremonia & Recepción
+      </div>
+
+
+      <h3>
+        Hacienda los Lirios
+      </h3>
+
+
+      <p class="address">
+
+        Blvd. Manuel Talamas Camandari 1112-1
+
+        <br>
+
+        32575 Juárez, Chihuahua
+
+      </p>
+
+
+      <a
+        class="map-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.google.com/maps/search/?api=1&query=Blvd.%20Manuel%20Talamas%20Camandari%201112-1%2C%2032575%20Juarez%2C%20Chihuahua">
+
+        Cómo llegar
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCHEDULE
+====================================================== -->
+
+<section class="schedule">
+
+  <div class="wrap">
+
+    <div class="center reveal">
+
+      <div class="section-label">
+        Sábado · 19 · Diciembre
+      </div>
+
+
+      <h2 class="section-title">
+        Nuestro gran día
+      </h2>
+
+    </div>
+
+
+    <div class="schedule-list">
+
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-time">
+          6:00 PM
+        </div>
+
+        <div class="schedule-info">
+
+          <h3>
+            Ceremonia
+          </h3>
+
+          <p>
+
+            El momento de compartir con ustedes
+            nuestro “Sí, acepto”.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-time">
+          7:00 PM
+        </div>
+
+
+        <div class="schedule-info">
+
+          <h3>
+            Recepción
+          </h3>
+
+
+          <p>
+
+            Después de la ceremonia comienza la celebración:
+            cena, brindis y una noche para disfrutar juntos.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-time">
+          Después...
+        </div>
+
+
+        <div class="schedule-info">
+
+          <h3>
+            ¡A celebrar!
+          </h3>
+
+          <p>
+
+            Música, baile y recuerdos que esperamos
+            compartir contigo.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECOND PHOTO
+====================================================== -->
+
+<section
+  style="
+    padding:0;
+    background:#111611;
+  ">
+
+  <div
+    class="reveal"
+    style="
+      width:100%;
+      height:min(70vh,760px);
+      min-height:460px;
+      overflow:hidden;
+    ">
+
+    <img
+      src="fotos/_EDY6318.jpg"
+      alt="Fotografía de la sesión"
+      style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+      ">
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DRESS CODE
+====================================================== -->
+
+<section class="dress">
+
+  <div class="wrap reveal">
+
+    <div class="section-label">
+      Código de vestimenta
+    </div>
+
+
+    <h2 class="section-title">
+      Formal
+    </h2>
+
+
+    <div class="ornament">
+      ✦
+    </div>
+
+
+    <p
+      style="
+        font-size:25px;
+        font-style:italic;
+      ">
+
+      Vístete para celebrar
+
+    </p>
+
+
+    <div class="palette">
+
+      <div
+        class="swatch"
+        title="Verde bosque"
+        style="background:#182019">
+      </div>
+
+      <div
+        class="swatch"
+        title="Verde salvia"
+        style="background:#7d8974">
+      </div>
+
+      <div
+        class="swatch"
+        title="Dorado"
+        style="background:#c4a36a">
+      </div>
+
+      <div
+        class="swatch"
+        title="Café"
+        style="background:#6d5043">
+      </div>
+
+      <div
+        class="swatch"
+        title="Azul marino"
+        style="background:#1B263B">
+      </div>
+
+    </div>
+
+
+    <p class="dress-copy">
+
+      Queremos verte increíble y, sobre todo,
+      queremos que disfrutes este día con nosotros.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     RSVP
+====================================================== -->
+
+<section class="rsvp">
+
+  <div class="wrap rsvp-content reveal">
+
+    <div
+      class="section-label"
+      style="color:#d9bd84;">
+
+      RSVP
+
+    </div>
+
+
+    <h2 class="section-title">
+      ¿Nos acompañas?
+    </h2>
+
+
+    <p class="rsvp-copy">
+
+      Hay personas que hacen que los momentos especiales
+      sean todavía más especiales.
+
+      <br><br>
+
+      Esperamos contar contigo.
+
+      <br>
+
+      Confírmanos tu asistencia por WhatsApp.
+
+    </p>
+
+
+    <a
+      class="whatsapp-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://wa.me/526565771643?text=Hola%20Cristian%20e%20Ivonne%20%E2%9D%A4%EF%B8%8F%20Confirmo%20mi%20asistencia%20a%20su%20boda%20el%2019%20de%20diciembre%20de%202026.%20Mi%20nombre%20es%3A%20">
+
+      ♡ &nbsp;
+      Confirmar por WhatsApp
+
+    </a>
+
+
+    <div class="rsvp-note">
+
+      Confirma tu asistencia con anticipación
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+  <div class="footer-monogram">
+    Cristian & Ivonne
+  </div>
+
+
+  <p>
+
+    19 · 12 · 2026
+
+    &nbsp; ✦ &nbsp;
+
+    Hacienda los Lirios
+
+  </p>
+
+</footer>
+
+
+<script>
+/* =========================================================
+   HERO SLIDESHOW
+========================================================= */
+
+const slides =
+  document.querySelectorAll(".slide");
+
+const dots =
+  document.querySelectorAll(".dot");
+
+let currentSlide = 0;
+
+
+function changeSlide(){
+
+  slides[currentSlide]
+    .classList.remove("active");
+
+  dots[currentSlide]
+    .classList.remove("active");
+
+
+  currentSlide =
+    (currentSlide + 1) % slides.length;
+
+
+  slides[currentSlide]
+    .classList.add("active");
+
+  dots[currentSlide]
+    .classList.add("active");
+
+}
+
+
+setInterval(
+  changeSlide,
+  6000
+);
+
+
+/* =========================================================
+   COUNTDOWN
+   Ciudad Juárez
+   19 diciembre 2026 - 6:00 PM
+========================================================= */
+
+const weddingDate =
+  new Date(
+    "2026-12-19T18:00:00-07:00"
+  ).getTime();
+
+
+function updateCountdown(){
+
+  const now =
+    Date.now();
+
+  const distance =
+    weddingDate - now;
+
+
+  if(distance <= 0){
+
+    document
+      .querySelector(
+        ".countdown-grid"
+      )
+      .innerHTML =
+
+      '<div style="' +
+      'grid-column:1/-1;' +
+      'padding:50px;' +
+      'font-size:40px;' +
+      'color:#e2c991;' +
+      'text-align:center;' +
+      '">' +
+      '¡Hoy nos casamos! ♥' +
+      '</div>';
+
+    return;
+
+  }
+
+
+  const day =
+    1000 * 60 * 60 * 24;
+
+  const hour =
+    1000 * 60 * 60;
+
+  const minute =
+    1000 * 60;
+
+
+  document
+    .getElementById("days")
+    .textContent =
+
+    String(
+      Math.floor(
+        distance / day
+      )
+    ).padStart(3,"0");
+
+
+  document
+    .getElementById("hours")
+    .textContent =
+
+    String(
+      Math.floor(
+        (distance % day) / hour
+      )
+    ).padStart(2,"0");
+
+
+  document
+    .getElementById("minutes")
+    .textContent =
+
+    String(
+      Math.floor(
+        (distance % hour) / minute
+      )
+    ).padStart(2,"0");
+
+
+  document
+    .getElementById("seconds")
+    .textContent =
+
+    String(
+      Math.floor(
+        (distance % minute) / 1000
+      )
+    ).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+/* =========================================================
+   REVEAL ON SCROLL
+========================================================= */
+
+const observer =
+  new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(
+        entry => {
+
+          if(entry.isIntersecting){
+
+            entry
+              .target
+              .classList
+              .add("visible");
+
+            observer
+              .unobserve(
+                entry.target
+              );
+
+          }
+
+        }
+      );
+
+    },
+
+    {
+      threshold:0.12
+    }
+
+  );
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(
+    element => {
+
+      observer
+        .observe(element);
+
+    }
+  );
+
+
+/* =========================================================
+   BACKGROUND MUSIC
+========================================================= */
+
+const backgroundMusic =
+  document.getElementById(
+    "backgroundMusic"
+  );
+
+const musicButton =
+  document.getElementById(
+    "musicButton"
+  );
+
+const musicText =
+  document.getElementById(
+    "musicText"
+  );
+
+const musicIcon =
+  document.getElementById(
+    "musicIcon"
+  );
+
+
+let musicPlaying =
+  false;
+
+
+/*
+   Volumen:
+
+   0.00 = silencio
+   1.00 = máximo
+
+   0.35 = 35%
+*/
+
+backgroundMusic.volume =
+  0.35;
+
+
+/*
+   Actualiza visualmente
+   el estado del botón.
+*/
+
+function updateMusicButton(){
+
+  if(musicPlaying){
+
+    musicButton
+      .classList
+      .add("playing");
+
+    musicText.textContent =
+      "Pausar";
+
+    musicIcon.textContent =
+      "♫";
+
+    musicButton
+      .setAttribute(
+        "aria-label",
+        "Pausar música"
+      );
+
+  }else{
+
+    musicButton
+      .classList
+      .remove("playing");
+
+    musicText.textContent =
+      "Música";
+
+    musicIcon.textContent =
+      "♪";
+
+    musicButton
+      .setAttribute(
+        "aria-label",
+        "Reproducir música"
+      );
+
+  }
+
+}
+
+
+/*
+   Play / Pause manual.
+*/
+
+function toggleMusic(){
+
+  if(musicPlaying){
+
+    backgroundMusic.pause();
+
+    musicPlaying = false;
+
+    updateMusicButton();
+
+  }else{
+
+    backgroundMusic
+      .play()
+      .then(() => {
+
+        musicPlaying = true;
+
+        updateMusicButton();
+
+      })
+      .catch(error => {
+
+        console.log(
+          "El navegador bloqueó la reproducción:",
+          error
+        );
+
+      });
+
+  }
+
+}
+
+
+musicButton
+  .addEventListener(
+    "click",
+    function(event){
+
+      /*
+         Evita que el mismo click
+         dispare también el listener
+         global de inicio automático.
+      */
+
+      event.stopPropagation();
+
+      toggleMusic();
+
+    }
+  );
+
+
+/*
+   Intentamos comenzar la música
+   cuando el invitado interactúa
+   por primera vez con la página.
+
+   Esto evita la restricción de
+   autoplay de Chrome, Edge,
+   Safari y navegadores móviles.
+*/
+
+function startMusicAfterInteraction(){
+
+  if(musicPlaying){
+    return;
+  }
+
+
+  backgroundMusic
+    .play()
+    .then(() => {
+
+      musicPlaying = true;
+
+      updateMusicButton();
+
+      removeMusicStartListeners();
+
+    })
+    .catch(() => {
+
+      /*
+         Si el navegador sigue
+         bloqueando el audio,
+         dejamos disponible el botón.
+      */
+
+    });
+
+}
+
+
+function removeMusicStartListeners(){
+
+  document
+    .removeEventListener(
+      "click",
+      startMusicAfterInteraction
+    );
+
+  document
+    .removeEventListener(
+      "touchstart",
+      startMusicAfterInteraction
+    );
+
+}
+
+
+document
+  .addEventListener(
+    "click",
+    startMusicAfterInteraction
+  );
+
+
+document
+  .addEventListener(
+    "touchstart",
+    startMusicAfterInteraction,
+    {
+      passive:true
+    }
+  );
+
+
+/*
+   Si la canción termina o
+   se pausa externamente,
+   mantenemos sincronizado
+   el botón.
+*/
+
+backgroundMusic
+  .addEventListener(
+    "pause",
+    () => {
+
+      musicPlaying = false;
+
+      updateMusicButton();
+
+    }
+  );
+
+
+backgroundMusic
+  .addEventListener(
+    "play",
+    () => {
+
+      musicPlaying = true;
+
+      updateMusicButton();
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
